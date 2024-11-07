@@ -416,11 +416,20 @@
                 gap: 15px;
             }
 
-            .step-line {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
+            .highlight-item {
+            padding: 8px 12px;
+            font-size: 0.9em;
+            max-width: 100%; /* Force la largeur maximale */
+            box-sizing: border-box; /* Inclut padding dans la largeur */
+        }
+
+        .step-highlights {
+            padding: 0 10px; /* Réduit les marges latérales */
+        }
+
+        .step-details {
+            padding: 15px 10px; /* Réduit le padding */
+        }
 
             .step-content h3 {
                 font-size: 1.2em;
@@ -430,10 +439,7 @@
                 padding: 15px;
             }
 
-            .highlight-item {
-                width: 100%;
-                justify-content: center;
-            }
+           
 
             .contact-section {
                 padding: 30px 20px;
