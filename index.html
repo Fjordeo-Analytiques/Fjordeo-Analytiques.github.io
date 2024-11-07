@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         :root {
             --primary: #004D4D;
@@ -382,7 +383,126 @@
         line-height: 1.6;
         margin: 0;
     }
+    @media screen and (max-width: 768px) {
+            .header {
+                padding: 20px;
+            }
 
+            .logo {
+                width: 150px;
+            }
+
+            .tagline {
+                font-size: 1.2em;
+            }
+
+            .main-content {
+                padding: 20px 15px;
+            }
+
+            .section {
+                padding: 20px;
+                margin: 20px 0;
+            }
+
+            .section-title {
+                font-size: 1.5em;
+            }
+
+            .service-grid,
+            .applications-grid,
+            .service-types-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .step-line {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .step-content h3 {
+                font-size: 1.2em;
+            }
+
+            .step-details {
+                padding: 15px;
+            }
+
+            .highlight-item {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .contact-section {
+                padding: 30px 20px;
+            }
+
+            .cta-section {
+                padding: 30px 20px;
+            }
+
+            .cta-section h2 {
+                font-size: 1.5em;
+            }
+
+            .cta-button {
+                padding: 12px 30px;
+                width: 100%;
+                text-align: center;
+                max-width: 300px;
+            }
+
+            .profile-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+
+            .profile-image {
+                width: 120px;
+                height: 120px;
+                margin: 0 auto;
+            }
+
+            .profile-info h3 {
+                font-size: 1.5em;
+            }
+
+            .service-card,
+            .application-card,
+            .service-type-card {
+                margin: 10px 0;
+            }
+
+            .benefit-list li {
+                padding-left: 20px;
+            }
+        }
+
+        /* Ajout de styles pour améliorer la lisibilité sur mobile */
+        @media screen and (max-width: 480px) {
+            body {
+                font-size: 16px;
+            }
+
+            .tagline {
+                font-size: 1.1em;
+            }
+
+            .section {
+                padding: 15px;
+            }
+
+            .contact-links {
+                gap: 10px;
+            }
+
+            .contact-link {
+                font-size: 0.9em;
+            }
+        }
     @media (max-width: 768px) {
         .profile-container {
             flex-direction: column;
