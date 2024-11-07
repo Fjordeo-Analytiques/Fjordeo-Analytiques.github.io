@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        :root {
+            --primary: #004D4D;
+            --secondary: #006D6D;
+            --accent: #F5F5F5;
+            --text-dark: #004D4D;
+            --text-light: #FFFFFF;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: var(--text-dark);
+            background: #fafafa;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .logo {
+            width: 200px;
+            margin: 0 auto 20px;
+            display: block;
+        }
+
+        .tagline {
+            font-size: 1.4em;
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.4;
+            color: var(--text-light);
+        }
+
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .section {
+            margin: 40px 0;
+            padding: 30px;
+            border-radius: 12px;
+            background: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            color: var(--primary);
+            border-bottom: 3px solid var(--secondary);
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .service-card {
+            background: var(--accent);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid var(--primary);
+            transition: transform 0.2s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-title {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .benefit-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .benefit-list li {
+            padding: 10px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .benefit-list li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+        }
+
+        .applications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .application-card {
+            background: var(--accent);
+            padding: 25px;
+            border-radius: 10px;
+            border-top: 5px solid var(--secondary);
+        }
+
+        .approach-new {
+            padding: 20px 0;
+        }
+
+        .approach-step {
+            margin-bottom: 40px;
+        }
+
+        .step-line {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .step-marker {
+            background: var(--primary);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            flex-grow: 1;
+        }
+
+        .step-content h3 {
+            color: var(--primary);
+            margin: 0 0 15px 0;
+            font-size: 1.4em;
+        }
+
+        .step-details {
+            background: var(--accent);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .step-details p {
+            margin: 0 0 15px 0;
+            color: var(--text-dark);
+        }
+
+        .step-highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 15px;
+            background: white;
+            border-radius: 20px;
+            font-size: 0.95em;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .highlight-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--secondary);
+            border-radius: 50%;
+        }
+
+        .service-types-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .service-type-card {
+            background: var(--accent);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid var(--primary);
+        }
+
+        .service-type-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .contact-section {
+            background: var(--primary);
+            color: white;
+            padding: 50px;
+            text-align: center;
+            border-radius: 12px;
+            margin-top: 50px;
+        }
+
+        .contact-links {
+            margin: 30px 0;
+        }
+
+        .contact-icon {
+            margin-right: 10px;
+            font-style: normal;
+        }
+
+        .contact-link {
+            color: white;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+            padding-bottom: 2px;
+            transition: border-color 0.3s;
+        }
+
+        .contact-link:hover {
+            border-color: white;
+        }
+
+        .location {
+            margin-top: 20px;
+            opacity: 0.9;
+        }
+            /* Styles existants... */
+
+    .highlight-section {
+        background: linear-gradient(135deg, rgba(0,77,77,0.05), rgba(0,109,109,0.05));
+    }
+
+    .service-badge {
+        background: var(--secondary);
+        color: white;
+        padding: 5px 15px;
+        border-radius: 20px;
+        display: inline-block;
+        margin-bottom: 15px;
+        font-size: 0.9em;
+    }
+
+    .cta-section {
+        text-align: center;
+        padding: 60px 20px;
+        background: var(--accent);
+        border-radius: 12px;
+        margin: 40px 0;
+    }
+
+    .cta-section h2 {
+        color: var(--primary);
+        margin-bottom: 20px;
+        font-size: 2em;
+    }
+
+    .cta-section p {
+        color: var(--text-dark);
+        margin-bottom: 30px;
+        font-size: 1.2em;
+    }
+
+    .cta-button {
+        display: inline-block;
+        background: var(--primary);
+        color: white;
+        padding: 15px 40px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: transform 0.2s, background-color 0.2s;
+    }
+
+    .cta-button:hover {
+        transform: translateY(-2px);
+        background: var(--secondary);
+    }
+
+    .contact-content {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .contact-links {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .contact-icon {
+        margin-right: 10px;
+        font-style: normal;
+    }
+
+    .contact-link {
+        color: white;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(255,255,255,0.3);
+        padding-bottom: 2px;
+        transition: border-color 0.3s;
+    }
+
+    .contact-link:hover {
+        border-color: white;
+    }
+
+    .location {
+        margin-top: 10px;
+        opacity: 0.9;
+    }
+    <style>
+    /* Ajouter aux styles existants */
+    .profile-section {
+        margin: 40px 0;
+        padding: 40px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    .profile-container {
+        max-width: 800px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .profile-image {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid var(--secondary);
+    }
+
+    .profile-info {
+        flex: 1;
+    }
+
+    .profile-info h3 {
+        color: var(--primary);
+        font-size: 1.8em;
+        margin: 0 0 10px 0;
+    }
+
+    .profile-title {
+        color: var(--secondary);
+        font-size: 1.2em;
+        margin: 0 0 15px 0;
+    }
+
+    .profile-description {
+        color: var(--text-dark);
+        line-height: 1.6;
+        margin: 0;
+    }
+
+    @media (max-width: 768px) {
+        .profile-container {
+            flex-direction: column;
+            text-align: center;
+            gap: 20px;
+        }
+
+        .profile-image {
+            margin: 0 auto;
+        }
+        .step-highlights {
+            flex-direction: column;
+        }
+        
+        .highlight-item {
+            width: 100%;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="ACg8ocIp9m8UMg-0J-fTEDb7GZmh1HxKQW1c8BPchm3_kTyN-VJQJxA=s864-c-no.PNG" alt="Fjordeo Analytique Logo" class="logo" style="border-radius: 50%">
+        <div class="tagline">Transformez vos données en décisions stratégiques</div>
+    </div>
+
+    <div class="main-content">
+        <div class="section">
+            <h2 class="section-title">Notre expertise</h2>
+            <p>Fjordeo Analytiques est une firme de conseil spécialisée en analytique basée au Saguenay. Notre expertise unique combine une profonde compréhension des enjeux d'affaires avec une maîtrise des technologies d'analyse avancée. Nous accompagnons les entreprises dans leur transformation numérique en leur permettant de tirer le maximum de valeur de leurs données.</p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Nos services spécialisés</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <div class="service-title">Analytique avancée</div>
+                    <ul class="benefit-list">
+                        <li>Analyse prédictive</li>
+                        <li>Modélisation statistique</li>
+                        <li>Optimisation des processus</li>
+                        <li>Détection d'anomalies</li>
+                        <li>Analyse de tendances</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-title">Intelligence d'affaires</div>
+                    <ul class="benefit-list">
+                        <li>Tableaux de bord interactifs</li>
+                        <li>KPIs personnalisés</li>
+                        <li>Rapports automatisés</li>
+                        <li>Visualisation de données</li>
+                        <li>Analyse de performance</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-title">Science des données</div>
+                    <ul class="benefit-list">
+                        <li>Machine learning</li>
+                        <li>Intelligence artificielle</li>
+                        <li>Traitement du langage naturel</li>
+                        <li>Analyse prédictive</li>
+                        <li>Modèles de classification</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Applications par secteur</h2>
+            <div class="applications-grid">
+                <div class="application-card">
+                    <h3>Secteur manufacturier</h3>
+                    <ul class="benefit-list">
+                        <li>Optimisation de la production</li>
+                        <li>Maintenance prédictive</li>
+                        <li>Contrôle qualité</li>
+                        <li>Gestion des stocks</li>
+                        <li>Efficacité énergétique</li>
+                    </ul>
+                </div>
+                <div class="application-card">
+                    <h3>Services et commerce</h3>
+                    <ul class="benefit-list">
+                        <li>Analyse comportementale</li>
+                        <li>Prévision des ventes</li>
+                        <li>Segmentation client</li>
+                        <li>Optimisation marketing</li>
+                        <li>Analyse de la satisfaction</li>
+                    </ul>
+                </div>
+                <div class="application-card">
+                    <h3>Gestion des ressources</h3>
+                    <ul class="benefit-list">
+                        <li>Optimisation du staffing</li>
+                        <li>Prévision des besoins en personnel</li>
+                        <li>Analyse de la charge de travail</li>
+                        <li>Planification des horaires</li>
+                        <li>Analyse de la productivité</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Notre approche</h2>
+            <div class="approach-new">
+                <div class="approach-step">
+                    <div class="step-line">
+                        <div class="step-marker">1</div>
+                        <div class="step-content">
+                            <h3>Analyse des besoins</h3>
+                            <div class="step-details">
+                                <p>La première étape consiste à comprendre en profondeur vos objectifs d'affaires et vos données disponibles.</p>
+                                <div class="step-highlights">
+                                    <div class="highlight-item">
+                                        <span class="highlight-dot"></span>
+                                        Évaluation des données existantes
+                                    </div>
+                                    <div class="highlight-item">
+                                        <span class="highlight-dot"></span>
+                                        Définition des objectifs précis
+                                    </div>
+                                    <div class="highlight-item">
+                                        <span class="highlight-dot"></span>
+                                        Identification des opportunités
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="approach-step">
+                    <div class="step-line">
+                        <div class="step-marker">2</div>
+                        <div class="step-content">
+                            <h3>Développement des solutions</h3>
+                            <div class="step-details">
+                                <p>Création et implémentation de solutions analytiques adaptées à vos besoins spécifiques.</p>
+                                <div class="step-highlights">
+                                    <div class="highlight-item">
+                                        <span class="highlight-dot"></span>
+                                        Développement itératif
+                                    </div>
+                                    <div class="highlight-item">
+                                        <span class="highlight-dot"></span>
+                                        Tests et validation continue
+                                    </div>
+                                    <div class="highlight-item">
+                                        <span class="highlight-dot"></span>
+                                        Intégration avec vos systèmes
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="approach-step">
+                    <div class="step-line">
+                        <div class="step-marker">3</div>
+                        <div class="step-content">
+                            <h3>Support et optimisation</h3>
+                            <div class="step-details">
+                                <p>Accompagnement continu pour assurer le succès à long terme de vos solutions analytiques.</p>
+                                <div class="step-highlights">
+                                    <div class="highlight-item">
+                                        <span class="highlight-dot"></span>
+                                        Formation personnalisée
+                                    </div>
+                                    <div class="highlight-item">
+                                        <span class="highlight-dot"></span>
+                                        Support technique
+                                    </div>
+                                    <div class="highlight-item">
+                                        <span class="highlight-dot"></span>
+                                        Amélioration continue
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section highlight-section">
+            <h2 class="section-title">Modalités de services flexibles</h2>
+            <div class="service-types-grid">
+                <div class="service-type-card">
+                    <h3>Services ad-hoc</h3>
+                    <div class="service-badge">Disponible rapidement</div>
+                    <ul class="benefit-list">
+                        <li>Analyses ponctuelles selon vos besoins</li>
+                        <li>Support analytique à la demande</li>
+                        <li>Consultation rapide</li>
+                        <li>Optimisation de rapports existants</li>
+                        <li>Solutions express</li>
+                    </ul>
+                </div>
+                <div class="service-type-card">
+                    <h3>Projets structurés</h3>
+                    <ul class="benefit-list">
+                        <li>Solutions complètes d'analytique</li>
+                        <li>Développement de tableaux de bord</li>
+                        <li>Implémentation de modèles prédictifs</li>
+                        <li>Formation et documentation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2>Prêt à transformer vos données en décisions ?</h2>
+            <p>Planifiez une consultation gratuite de 30 minutes pour discuter de vos besoins</p>
+            <a href="https://calendly.com/votre-lien" class="cta-button" target="_blank">Prendre rendez-vous</a>
+        </div>
+
+        <div class="profile-section">
+            <div class="profile-container">
+                <img src="1648238253469.jfif" alt="Pascal Côté" class="profile-image">
+                <div class="profile-info">
+                    <h3>Pascal Côté</h3>
+                    <p class="profile-title">Expert en analytique d'affaires</p>
+                    <p class="profile-description">Spécialiste en science des données avec une solide expérience en optimisation des processus industriels et en transformation numérique. Passionné par l'utilisation des données pour créer de la valeur ajoutée.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-section">
+            <h2>Contactez-nous</h2>
+            <div class="contact-content">
+                <div class="contact-links">
+                    <p>
+                        <i class="contact-icon">📧</i>
+                        <a href="mailto:fjordeoanalytique@gmail.com" class="contact-link">fjordeoanalytique@gmail.com</a>
+                    </p>
+                    <p>
+                        <i class="contact-icon">💼</i>
+                        <a href="https://www.linkedin.com/in/pascal-côté-8162b5194/" class="contact-link" target="_blank">LinkedIn</a>
+                    </p>
+                    <p class="location">
+                        <i class="contact-icon">📍</i>
+                        Saguenay-Lac-Saint-Jean, Québec
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
